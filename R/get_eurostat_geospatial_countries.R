@@ -96,7 +96,7 @@ get_eurostat_geospatial_countries <- function(output_class = "sf",
     }
     
     url <- paste0("https://gisco-services.ec.europa.eu/distribution/v2/countries/geojson/CNTR_RG_",resolution,"M_",year,"_",crs,".geojson")
-    print(url)
+    
     resp <- httr::RETRY("GET", url, terminate_on = c(404))
     if (httr::http_error(resp)) {
       stop(
